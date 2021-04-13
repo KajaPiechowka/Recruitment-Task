@@ -5,6 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const modal = document.querySelector(".modal");
   const container = document.querySelector(".container");
 
+  const sanitizeHTML = function (str) {
+    var temp = document.createElement("div");
+    temp.textContent = str;
+    return temp.innerHTML;
+  };
+
   if (
     document.cookie
       .split("; ")
@@ -21,7 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
       let vendorsHtml = "";
 
       Object.values(data.vendors).forEach((value) => {
-        vendorsHtml += `<li><input id="${value.id}" class="vendor-checkbox" type="checkbox" checked/><label for="${value.id}"> ${value.name}</label> (<a href="${value.policyUrl}">Policy Url</a>)</li>`;
+        vendorsHtml += `<li><input id="${sanitizeHTML(
+          value.id
+        )}" class="vendor-checkbox" type="checkbox" checked/><label for="${sanitizeHTML(
+          value.id
+        )}"> ${sanitizeHTML(value.name)}</label> (<a href="${
+          value.policyUrl
+        }">Policy Url</a>)</li>`;
       });
 
       list.innerHTML = vendorsHtml;
