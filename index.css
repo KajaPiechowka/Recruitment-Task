@@ -7,28 +7,50 @@
 }
 
 .blur {
+  filter: blur(4px);
+  overflow: hidden;
+}
+
+.container {
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blueviolet;
+  background-color: transparent;
 }
 .modal {
-  width: 80%;
-  height: 80%;
+  width: 100vw;
+  height: 40vh;
+  position: fixed;
+  bottom: 0;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
 }
-.container {
+div.buttons {
+  width: 300px;
+  margin: 20px 0 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  text-transform: uppercase;
+  background-color: khaki;
+  padding: 10px;
+  cursor: pointer;
+}
+.list {
   overflow-y: scroll;
 }
-.container li {
+.list li {
   list-style-type: dot;
+}
+.invisible {
+  display: none;
 }
